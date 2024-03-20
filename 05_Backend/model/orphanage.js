@@ -43,7 +43,7 @@ const OrphanageSchema= new mongoose.Schema({
       type:String,
       required:true
     },
-      contactInfo:{
+    contactInfo:{
     type:String,
     required:true
   }
