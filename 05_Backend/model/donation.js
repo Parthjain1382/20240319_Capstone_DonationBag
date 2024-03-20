@@ -6,21 +6,32 @@ const donationSchema = new mongoose.Schema({
   orphanageId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: Orphanage,
-    required:false
+    required:true
   },
   donorID:{
     type:mongoose.Schema.Types.ObjectId,
     ref:donor,
-    required:false
+    required:true
+  },
+  donerThings:{
+    beds: {
+      type:Number,
+      required: true 
+      
+    },
+    clothes: {
+      type: Number,
+      required: true 
+    },
   },
   status:{
     type:String,
     required:true
+  },
+  date:{
+    type:Date,
+    required:true
   }
-  // date:{
-  //   type:date,
-  //   required:true
-  // }
 });
 
 const Donation = mongoose.model("Donation", donationSchema);

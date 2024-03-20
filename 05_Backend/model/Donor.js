@@ -9,6 +9,12 @@ const donorSchema = new mongoose.Schema({
     type:String,
     required:true
   },
+  password: {
+    type: String,
+    required: true,
+    minlength: 8,
+    maxlength: 200,
+  },
   address:{
     type:String,
     required:true

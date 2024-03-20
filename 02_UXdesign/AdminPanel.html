@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="./assets/css/requestlist.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    
+
+    <div class="container">
+      <div class="headings">
+        <div style="font-size: xx-large; font-weight: 550">Requests</div>
+        <div class="dropdown-container" onclick="toggleDropdown()">
+          
+        </div>
+      </div>
+      <div class="main-box">
+        <div class="column">
+          <a href="#" class="rectangle clickable-address">Donor Name and Details</a>
+          <a href="#" class="rectangle clickable-address">Donor Name and Details</a>
+          <a href="#" class="rectangle clickable-address">Donor Name and Details</a>
+          <a href="#" class="rectangle clickable-address">Donor Name and Details</a>
+          <a href="#" class="rectangle clickable-address">Donor Name and Details</a>
+          <a href="#" class="rectangle clickable-address">Donor Name and Details</a>
+          
+
+        </div>
+        <div class="column">
+          <div class="rectangle" style="justify-content: center">
+            beds:{{}} 
+             Clothes: Male{{}}
+                      Female{{}}
+          </div>
+          <div class="rectangle" style="justify-content: center">
+            beds:{{}} 
+            Clothes: Male{{}}
+                     Female{{}}
+          </div>
+          <div class="rectangle" style="justify-content: center">
+            beds:{{}} 
+            Clothes: Male{{}}
+                     Female{{}}
+          </div>
+          <div class="rectangle" style="justify-content: center">
+            beds:{{}} 
+            Clothes: Male{{}}
+                     Female{{}}
+          </div>
+          <div class="rectangle" style="justify-content: center">
+            beds:{{}} 
+             Clothes: Male{{}}
+                      Female{{}}
+          </div>
+          <div class="rectangle" style="justify-content: center">
+            beds:{{}} 
+            Clothes: Male{{}}
+                     Female{{}}
+          </div>
+        </div>
+        <div class="column">
+          <div class="rectangle owner-phone-container">
+            <button>ACCEPT</button>
+          </div>
+          <div class="rectangle owner-phone-container">
+            <button>ACCEPT</button>
+          </div>
+          <div class="rectangle owner-phone-container">
+            <button>ACCEPT</button>
+          </div>
+          <div class="rectangle owner-phone-container">
+            <button>ACCEPT</button>
+          </div>
+          <div class="rectangle owner-phone-container">
+            <button>ACCEPT</button>
+          </div>
+          <div class="rectangle owner-phone-container">
+            <button>ACCEPT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+
+    <script>
+      function toggleDropdown() {
+        var dropdownContent = document.getElementById("dropdownContent");
+        dropdownContent.style.display =
+          dropdownContent.style.display === "block" ? "none" : "block";
+      }
+
+      function selectPropertyType(type) {
+        alert(type); // You can replace this with your desired functionality
+      }
+    </script>
+  </body>
+</html>

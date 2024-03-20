@@ -11,7 +11,13 @@ const adminSchema=new mongoose.Schema({
   adminemail:{ 
     type:String,
     required:true
-  }
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 8,
+    maxlength: 200,
+  },
 })
 
 const adminDB=mongoose.model("MiddleMan",adminSchema)

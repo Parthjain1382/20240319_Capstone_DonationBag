@@ -9,9 +9,19 @@ const OrphanageSchema= new mongoose.Schema({
     type:String,
     required:true
   },
+  password: {
+    type: String,
+    required: true,
+    minlength: 8,
+    maxlength: 200,
+  },
   address: {
     type: String,
     required: true
+  },
+  description:{
+    type:String,
+    required:true
   },
   contactInfo: {
     type: String,
@@ -28,8 +38,11 @@ const OrphanageSchema= new mongoose.Schema({
         required: true 
       },
     },  
-
-  contactInfo:{
+    image:{
+      type:String,
+      required:true
+    },
+      contactInfo:{
     type:String,
     required:true
   }
