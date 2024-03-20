@@ -25,7 +25,8 @@ const OrphanageSchema= new mongoose.Schema({
   },
   contactInfo: {
     type: String,
-    required: true
+    required: true,
+    minLength:13
   },
   needs: {
       beds: {

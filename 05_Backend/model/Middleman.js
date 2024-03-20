@@ -5,8 +5,9 @@ const adminSchema=new mongoose.Schema({
     type:String,
     required:true
   },
-  username:{
-    type:String
+  contactInfo:{
+    type:Number,
+    required:false
   },
   adminemail:{ 
     type:String,
