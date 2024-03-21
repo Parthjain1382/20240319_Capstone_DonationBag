@@ -20,8 +20,16 @@ const donationSchema = new mongoose.Schema({
       
     },
     clothes: {
-      type: Number,
-      required: true 
+     mens:{
+      type:Number,
+      required:true,
+      default:0
+     },
+     female:{
+      type:Number,
+      required:true,
+      default:0
+     }
     },
   },
   // status:{
@@ -30,7 +38,8 @@ const donationSchema = new mongoose.Schema({
   // },
   date:{
     type:Date,
-    required:true
+    required:false
+    
   }
 });
 

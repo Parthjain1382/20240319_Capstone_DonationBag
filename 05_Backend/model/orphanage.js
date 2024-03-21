@@ -41,11 +41,18 @@ const OrphanageSchema = new mongoose.Schema({
     beds: {
       type: Number,
       required: true
-
     },
     clothes: {
-      type: Number,
-      required: true
+      mens:{
+        type:Number,
+        required:true,
+        default:0
+       },
+       female:{
+        type:Number,
+        required:true,
+        default:0
+       }
     },
   },
   imageUrl: {
