@@ -2,7 +2,23 @@
 import express from "express";
 import 'dotenv/config';
 import cors from 'cors';
-import mongoose from 'mongoose';
+import { connectDatabase } from "./database.js";
+
+// Internal dependencies
+import authRouter from "./router/auth.js";
+import userRouter from "./router/userrouter.js";
+import orphanageRouter from "./router/orphanage.js";
+import donorRouter from "./router/donor.js";
+// import { connectDatabase } from "./database.js";
+// import { setupSwagger } from "./swaggerSetup.js";
+// import profileRouter from "./routes/profile.js";
+// import walletRouter from "./routes/wallet.js";
+// import checkoutRouter from "./routes/checkout.js";
+// import bookingRouter from "./routes/booking.js";
+// import hotelRouter from "./routes/hotel.js";
+// import roomRouter from "./routes/room.js";
+// import reviewRouter from "./routes/reviews.js";
+// import searchRouter from "./routes/search.js";
 
 const app = express();
 
@@ -10,28 +26,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
-import Donation from "./model/donation.js";
-import donor from "./model/Donor.js";
-import adminDB from "./model/Middleman.js";
-import Orphanage from "./model/orphanage.js";
-
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log("Connected to Database Successfully");
-        app.listen(PORT, () => {
-          console.log(` Server is running Listening on port ${PORT}`);
-      });
-    })
-    .catch(error => {
-        console.error("Error connecting to database:", error);
-    });
-
-
 // Routes
-// Uncomment and import your route files here
-// app.use('/', authRouter);
+app.use('/', authRouter);
+app.use('/user',userRouter);
+app.use('/orphanage',orphanageRouter);
+app.use('/donor',donorRouter);
 // app.use('/', profileRouter);
 // app.use('/', walletRouter);
 // app.use('/', checkoutRouter);
@@ -41,6 +40,14 @@ mongoose.connect(process.env.MONGO_URI)
 // app.use('/', reviewRouter);
 // app.use('/', searchRouter);
 
-// Start server
-const PORT = process.env.PORT || 3005;
+// Connect to MongoDB
+connectDatabase();
 
+// // Setup Swagger
+// setupSwagger(app);
+
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(` Server is running Listening on port ${PORT}`);
+});

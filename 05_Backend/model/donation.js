@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Orphanage from "./orphanage.js";
-import donor from "./Donor.js";
+import User from "./Users.js";
 
 const donationSchema = new mongoose.Schema({
   orphanageId: {
@@ -10,7 +10,7 @@ const donationSchema = new mongoose.Schema({
   },
   donorID:{
     type:mongoose.Schema.Types.ObjectId,
-    ref:donor,
+    ref:User,
     required:true
   },
   donerThings:{
@@ -24,10 +24,10 @@ const donationSchema = new mongoose.Schema({
       required: true 
     },
   },
-  status:{
-    type:String,
-    required:true
-  },
+  // status:{
+  //   type:String,
+  //   required:true
+  // },
   date:{
     type:Date,
     required:true

@@ -1,51 +1,61 @@
 import mongoose from "mongoose";
 
-const OrphanageSchema= new mongoose.Schema({
+const OrphanageSchema = new mongoose.Schema({
   orphanageName: {
     type: String,
+    maxLength: 20,
     required: true
   },
-  orphanageEmail:{
-    type:String,
-    required:true
-  },
-  password: {
+  orphanageEmail: {
     type: String,
-    required: true,
-    minlength: 8,
-    maxlength: 200,
+    maxLength: 25,
+    required: true
   },
+  // password: {
+  //   type: String,
+  //   required: true,
+  //   minlength: 8,
+  //   maxlength: 20,
+  // },
   address: {
     type: String,
     required: true
   },
-  description:{
-    type:String,
-    required:true
+  description: {
+    type: String,
+    required: true
   },
   contactInfo: {
     type: String,
     required: true,
-    minLength:13
+    minLength: 12,
+    validate: {
+      validator: function (value) {
+        //  Basic email validation
+        return /^\+\d{1,4}\d{10}$/.test(value);
+      },
+      message: "Invalid Phone Number",
+    },
   },
   needs: {
-      beds: {
-        type:Number,
-        required: true 
-        
-      },
-      clothes: {
-        type: Number,
-        required: true 
-      },
-    },  
-    image:{
-      type:String,
-      required:true
+    beds: {
+      type: Number,
+      required: true
+
     },
-    contactInfo:{
-    type:String,
-    required:true
+    clothes: {
+      type: Number,
+      required: true
+    },
+  },
+  imageUrl: {
+    type: String,
+    required: true
+  },
+  DateofPost: {
+    type: Date,
+    required: false,
+    default: Date.now()
   }
 })
 
