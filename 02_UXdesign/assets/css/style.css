@@ -367,14 +367,14 @@ header {
 
 @media screen and (max-width: 1050px) {
   .slider-captions {
-    bottom: 100px !important; 
+    bottom: 100px !important; }
 
   width: 90%;
   text-align: center;
   float: none;
   margin: auto;
   .slider-captions .slider-title {
-    font-size: 42px; } }}
+    font-size: 42px; } }
 @media screen and (max-width: 810px) {
   .slider-captions {
     bottom: 50px !important; }

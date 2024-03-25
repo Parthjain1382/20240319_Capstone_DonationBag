@@ -1,4 +1,3 @@
-import { roles } from "../constants/userConstants.js"
 /** password validator
  * 
  * @param {String} input input password
@@ -8,7 +7,6 @@ function passwordValidator(input){
 
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
     return passwordRegex.test(input)
-
 }
 
 /** email validator
@@ -37,21 +35,7 @@ function usernameValidator(input){
     return true
 }
 
-/** role validator
- * 
- * @param {String} input input password
- * @returns {Boolean} validattion 
- */
-function roleValidator(input){
 
-    const rolesValues = Object.values(roles)
-    if(rolesValues.includes(input)){
-        return true
-    }
-    else{
-        return false
-    }
-}
 
 /** location validator
  * 
@@ -77,15 +61,6 @@ function phoneNumberValidation(){
 
 }
 
-/** about  validator
- * 
- * @param {String} input input password
- * @returns {Boolean} validattion 
- */
-function aboutValidation(input){
-    if(typeof input !="string"){
-        return false
-    }
-    return true
-}
-export {passwordValidator,emailValidator,usernameValidator,roleValidator,phoneNumberValidation}
+
+
+export {passwordValidator,emailValidator,usernameValidator,phoneNumberValidation,locationValidator}

@@ -1,5 +1,5 @@
 import { emailValidator, passwordValidator, usernameValidator } from "./userValidations.js"
-import { Error400 } from "../constants/signupErrorConstants.js"
+
 
 /**
  * 
@@ -15,7 +15,6 @@ function signupValidation(userdata){
     }
     if(!emailValidator(email)){
         error.email = Error400.INVALID_EMAIL_FORMAT
-
     }
     if(!usernameValidator(username)){
         error.username = Error400.INVALID_USERNAME_FROMAT

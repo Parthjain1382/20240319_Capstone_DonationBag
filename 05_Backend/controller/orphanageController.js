@@ -19,10 +19,13 @@ const orphanageList =async (req, res) => {
   }
 };
 
-const addNewOrphanage=(requireLogin,async (req, res) => {
-  const user=req;
-  console.log(user)
-  if(user.role=="admin"){
+const addNewOrphanage = (requireLogin, async (req, res) => {
+  const user = req.user
+
+  if (user.role != "admin") {
+    return res.status(401).send({ error: "You are not an Admin" });
+  }
+
   try {
     // Extract data from the request body
     const {
@@ -32,14 +35,8 @@ const addNewOrphanage=(requireLogin,async (req, res) => {
       description,
       contactInfo,
       imageUrl,
-      needs: {
-        beds,
-        clothes: {
-          mens,
-          female }
-      }
+      needs: { beds, clothes: { mens, female } }
     } = req.body;
-
 
     // Create a new orphanage object using the Orphanage model
     const newOrphanage = new Orphanage({
@@ -50,30 +47,22 @@ const addNewOrphanage=(requireLogin,async (req, res) => {
       contactInfo,
       needs: {
         beds,
-        clothes: {
-          mens,
-          female
-        }
+        clothes: { mens, female }
       },
-      imageUrl,
+      imageUrl
     });
 
     // Save the new orphanage to the database
     const savedOrphanage = await newOrphanage.save();
-
     // Return a success response with the saved orphanage data
-    res.status(201).json(savedOrphanage);
-  }
-
-   catch (error) {
+    return res.status(201).json(savedOrphanage);
+  } catch (error) {
     // Handle errors
-    console.error('Error adding new orphanage:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }}
-  else{
-    res.status(401).json({error:"You are not a Admin"});
+    console.error("Error adding new orphanage:", error);
+    return res.status(500).json({ error: "Internal server error" });
   }
 });
+
 
 export default{
  orphanageList,

@@ -5,6 +5,9 @@ import Orphanage from "../model/orphanage.js"
 import inventory from "../model/Inventory.js";
 import Donation from "../model/donation.js";
 
+
+/**To Get the List of all Donors
+ * */  
 const donorList=async (req, res) => {
   try {
     //Finding the role==="CompanyUser"
@@ -17,6 +20,9 @@ const donorList=async (req, res) => {
   }
 };
 
+/**The Function to donate the orphanage 
+ * 
+ */
 const donate = (requireLogin,async (req, res) => {
   try {
     // Extracting user data from request body
