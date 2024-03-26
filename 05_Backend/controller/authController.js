@@ -10,7 +10,7 @@ import Users from "../model/Users.js";
 
 //Function for signUp 
 const signUp = async (req, res) => {
-  try {
+  try {;
       // Extracting user data from request body
       const {  username, password, email, phone_number, address, companyName, companyEmail  } = req.body;
       const userData = {  username, password, email, phone_number, address, companyName, companyEmail  };

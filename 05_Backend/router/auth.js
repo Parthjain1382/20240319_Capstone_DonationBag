@@ -9,7 +9,7 @@ const authRouter = express.Router();
 
 
 //signUp
-// authRouter.post("/signup", userController.signUp); 
+authRouter.post("/signup", userController.signUp); 
 
 // //For SignIn
 authRouter.post('/signin', userController.login);
